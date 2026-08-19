@@ -1,0 +1,17 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/quiz/quiz",
+    "pages/result/result"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#0A0A0C",
+    "navigationBarTitleText": "社会认知与决策倾向测评",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#0A0A0C",
+    "backgroundTextStyle": "light"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

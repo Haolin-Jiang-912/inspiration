@@ -1,0 +1,80 @@
+<!-- pages/index/index.wxml -->
+<view class="page">
+
+  <!-- 顶部 Hero -->
+  <view class="hero">
+    <view class="hero-quote">「你的语言，就是你世界的边界」</view>
+    <view class="hero-title">社会情境判断与<br/>决策倾向量表</view>
+    <view class="hero-sub">
+      <view class="sub-line"></view>
+      <text class="sub-text">Designed by Harry Jiang</text>
+    </view>
+  </view>
+
+  <!-- 量表简介 -->
+  <view class="section">
+    <view class="card">
+      <view class="card-title">量表说明</view>
+      <view class="desc">
+        本量表通过 35 道社会情境判断题，考察你的认知复杂度与价值观念成熟度。每道题没有绝对对错，但不同选项背后，隐藏着「结构性思维」「制度激励意识」「元认知能力」等不同维度的差异。
+      </view>
+      <view class="meta-row">
+        <view class="meta-item">
+          <view class="meta-num">{{info.total}}</view>
+          <view class="meta-label">道题目</view>
+        </view>
+        <view class="meta-item">
+          <view class="meta-num">{{info.minutes}}</view>
+          <view class="meta-label">分钟完成</view>
+        </view>
+        <view class="meta-item">
+          <view class="meta-num">{{info.dimensions}}</view>
+          <view class="meta-label">个分析维度</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 评分逻辑 -->
+    <view class="card">
+      <view class="card-title">如何评分</view>
+      <view class="score-item">
+        <view class="score-dot" style="background:#0A84FF;"></view>
+        <view class="score-text"><text class="score-strong">3 分</text>：系统性、多因果、结构+激励+长期视角，能区分表层症状与深层机制</view>
+      </view>
+      <view class="score-item">
+        <view class="score-dot" style="background:#30D158;"></view>
+        <view class="score-text"><text class="score-strong">2 分</text>：有结构意识或关键洞察，但覆盖面不完整</view>
+      </view>
+      <view class="score-item">
+        <view class="score-dot" style="background:#FF9F0A;"></view>
+        <view class="score-text"><text class="score-strong">1 分</text>：有一定合理性，但偏单一因果、道德化或只看短期</view>
+      </view>
+      <view class="score-item">
+        <view class="score-dot" style="background:#FF453A;"></view>
+        <view class="score-text"><text class="score-strong">0 分</text>：过度简化、个体道德归因、忽视制度激励与结构约束</view>
+      </view>
+      <view class="desc tip">按题目答案得分相加，形成六个维度得分，最终输出综合人物画像。</view>
+    </view>
+
+    <!-- 维度一览 -->
+    <view class="card">
+      <view class="card-title">六大分析维度</view>
+      <view class="dim-list">
+        <view class="dim-chip" wx:for="{{['教育流动','劳动家庭','政策过程','媒介舆论','科技监管','国际因果']}}" wx:key="*this">
+          <text class="dim-num">{{index + 1}}</text>
+          <text class="dim-name">{{item}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 免责 -->
+    <view class="disclaimer">测评结果基于你的选项分布生成，仅供自我认知与讨论参考，不构成任何专业评估结论。</view>
+  </view>
+
+  <!-- 底部按钮 -->
+  <view class="footer">
+    <view class="btn-primary" bindtap="onStart">开始答题</view>
+    <view class="btn-ghost" bindtap="onContinue">继续上次答题</view>
+  </view>
+
+</view>

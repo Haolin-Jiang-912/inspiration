@@ -1,0 +1,84 @@
+/* app.wxss - 全局样式 · Dark Editorial */
+
+page {
+  background: #0A0A0C;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC",
+    "Helvetica Neue", "Hiragino Sans GB", sans-serif;
+  color: #FFFFFF;
+  font-size: 30rpx;
+  line-height: 1.58;
+  letter-spacing: -0.02em;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── 通用卡片 ── */
+.card {
+  background: #1C1C1E;
+  border-radius: 36rpx;
+  padding: 40rpx;
+  margin: 0 32rpx 24rpx;
+}
+
+.card-title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 20rpx;
+  letter-spacing: -0.02em;
+}
+
+/* ── 主按钮 ── */
+.btn-primary {
+  background: #FFFFFF;
+  color: #0A0A0C;
+  font-size: 32rpx;
+  font-weight: 600;
+  border-radius: 52rpx;
+  padding: 26rpx 0;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+.btn-primary:active {
+  opacity: 0.75;
+}
+
+/* ── 次级按钮 ── */
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  font-size: 32rpx;
+  font-weight: 500;
+  border: none;
+  border-radius: 52rpx;
+  padding: 26rpx 0;
+  text-align: center;
+}
+
+.btn-ghost:active {
+  opacity: 0.7;
+}
+
+/* ── 标签 ── */
+.tag {
+  display: inline-block;
+  font-size: 22rpx;
+  font-weight: 500;
+  padding: 4rpx 16rpx;
+  border-radius: 999rpx;
+}
+
+.tag-high {
+  background: rgba(0, 122, 255, 0.2);
+  color: #0A84FF;
+}
+
+.tag-mid {
+  background: rgba(255, 159, 10, 0.2);
+  color: #FF9F0A;
+}
+
+.tag-low {
+  background: rgba(255, 69, 58, 0.2);
+  color: #FF453A;
+}

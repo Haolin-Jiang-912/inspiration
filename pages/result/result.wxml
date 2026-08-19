@@ -1,0 +1,136 @@
+<!-- pages/result/result.wxml -->
+<view class="page" wx:if="{{result}}">
+
+  <!-- 总分卡 -->
+  <view class="hero">
+    <view class="hero-accent" style="background: {{profileColor}};"></view>
+    <view class="hero-label">你的综合得分</view>
+    <view class="hero-score">{{totalPercent}}<text class="hero-percent">%</text></view>
+    <view class="hero-sub">得分率越高，认知复杂度与观念成熟度越高</view>
+  </view>
+
+  <!-- 雷达图 -->
+  <view class="card radar-card">
+    <view class="card-title">六维度画像</view>
+    <canvas canvas-id="radarCanvas" class="radar-canvas"></canvas>
+  </view>
+
+  <!-- 综合人物画像 -->
+  <view class="card profile-card">
+    <view class="card-title">综合人物画像</view>
+    <view class="profile-head">
+      <view class="profile-avatar" style="background: {{profileColor}};">{{profile.name.slice(0, 1)}}</view>
+      <view class="profile-meta">
+        <view class="profile-name">{{profile.name}}</view>
+        <view class="profile-tag" style="color: {{profileColor}};">{{profile.tag}}</view>
+      </view>
+    </view>
+
+    <view class="profile-section">
+      <view class="section-label">核心画像</view>
+      <view class="section-text">{{profile.core}}</view>
+    </view>
+
+    <view class="profile-section">
+      <view class="section-label">常见表现</view>
+      <view class="behavior-list">
+        <view class="behavior-item" wx:for="{{profile.behaviors}}" wx:key="*this">
+          <view class="behavior-dot" style="background: {{profileColor}};"></view>
+          <view class="behavior-text">{{item}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="profile-section">
+      <view class="section-label blindspot-label">潜在盲区</view>
+      <view class="section-text blindspot-text">{{profile.blindspot}}</view>
+    </view>
+
+    <!-- 代表人物 -->
+    <view class="profile-section figure-section" wx:if="{{profile.figure}}">
+      <view class="section-label figure-label">你的思维相似人物</view>
+      <view class="figure-card">
+        <view class="figure-avatar" style="background: {{profileColor}};">{{profile.figure.name.slice(0, 1)}}</view>
+        <view class="figure-info">
+          <view class="figure-name-row">
+            <text class="figure-name">{{profile.figure.name}}</text>
+            <text class="figure-name-en">{{profile.figure.nameEn}}</text>
+          </view>
+          <view class="figure-title">{{profile.figure.title}}</view>
+          <view class="figure-bio">{{profile.figure.bio}}</view>
+        </view>
+      </view>
+      <view class="figure-match">{{profile.figure.match}}</view>
+    </view>
+
+    <!-- 推荐歌曲 -->
+    <view class="profile-section song-section" wx:if="{{profile.song}}">
+      <view class="section-label song-label">🎵 为你推荐</view>
+      <view class="song-card">
+        <view class="song-cover-wrap">
+          <view class="song-cover" style="background: {{profile.song.color || profileColor}};">
+            <text class="song-cover-text">{{profile.song.name.slice(0, 1)}}</text>
+          </view>
+        </view>
+        <view class="song-info">
+          <view class="song-name">{{profile.song.name}}</view>
+          <view class="song-artist">{{profile.song.artist}}</view>
+          <view class="song-lyric">{{profile.song.lyric}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 维度详情 -->
+  <view class="card">
+    <view class="card-title">六维度得分详解</view>
+
+    <view class="dim-item" wx:for="{{dims}}" wx:key="id">
+      <view class="dim-head">
+        <view class="dim-title">
+          <text class="dim-icon">{{item.icon}}</text>
+          <text class="dim-name">{{item.name}}</text>
+        </view>
+        <view class="dim-score">
+          <text class="dim-points">{{item.score}}</text>
+          <text class="dim-max">/ {{item.max}} 分</text>
+          <text class="tag tag-{{item.level}}">{{item.levelText}}分</text>
+        </view>
+      </view>
+      <view class="dim-bar-track">
+        <view class="dim-bar-fill" style="width: {{item.percent}}%; background: {{item.level === 'high' ? '#0A84FF' : item.level === 'mid' ? '#FF9F0A' : '#FF453A'}};"></view>
+      </view>
+      <view class="dim-rate">{{item.percent}}% 得分率</view>
+      <view class="dim-desc">{{item.levelDesc}}</view>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="actions">
+    <view class="btn-primary" bindtap="onRestart">重新测试</view>
+    <view class="btn-ghost" bindtap="onHome">返回首页</view>
+  </view>
+
+  <view class="btn-card-wrap">
+    <view class="btn-card" bindtap="onGenerateCard">生成分享卡片</view>
+  </view>
+
+  <view class="disclaimer">测评结果基于你的选项分布生成，仅供自我认知与讨论参考。</view>
+
+</view>
+
+<!-- 卡片画布（离屏） -->
+<canvas canvas-id="cardCanvas" class="card-canvas-offscreen"></canvas>
+
+<!-- 卡片预览 -->
+<view class="card-preview" wx:if="{{cardImgPath}}">
+  <view class="card-preview-mask" bindtap="onCloseCard"></view>
+  <view class="card-preview-box">
+    <image src="{{cardImgPath}}" mode="widthFix" class="card-preview-img" show-menu-by-longpress></image>
+    <view class="card-preview-actions">
+      <button class="btn-share" open-type="share">分享给好友</button>
+      <view class="btn-primary" bindtap="onSaveCard">保存到相册</view>
+    </view>
+    <view class="card-preview-close" bindtap="onCloseCard">关闭</view>
+  </view>
+</view>

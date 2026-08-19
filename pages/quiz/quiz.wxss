@@ -1,0 +1,162 @@
+/* pages/quiz/quiz.wxss · Dark Editorial */
+
+.page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #0A0A0C;
+}
+
+/* ── 头部进度 ── */
+.header {
+  padding: 24rpx 40rpx 20rpx;
+  background: #1C1C1E;
+}
+
+.progress-track {
+  height: 6rpx;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999rpx;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #0A84FF;
+  border-radius: 999rpx;
+  transition: width 0.3s ease;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.q-no {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+}
+
+.q-count {
+  font-size: 24rpx;
+  color: #8E8E93;
+  font-weight: 500;
+}
+
+/* ── 主体 ── */
+.body {
+  flex: 1;
+  padding: 40rpx 32rpx 0;
+  box-sizing: border-box;
+}
+
+.question-text {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  margin-bottom: 40rpx;
+  padding: 0 8rpx;
+}
+
+/* ── 选项 ── */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  background: #1C1C1E;
+  border-radius: 24rpx;
+  padding: 30rpx 28rpx;
+  transition: all 0.15s ease;
+  border: none;
+}
+
+.option-selected {
+  background: rgba(10, 132, 255, 0.08);
+}
+
+.option-letter {
+  font-size: 24rpx;
+  font-weight: 600;
+  color: #6C6C70;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+  width: 32rpx;
+}
+
+.option-selected .option-letter {
+  color: #0A84FF;
+}
+
+.option-text {
+  flex: 1;
+  font-size: 28rpx;
+  color: #FFFFFF;
+  line-height: 1.55;
+}
+
+.option-radio {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  border: 4rpx solid rgba(255, 255, 255, 0.2);
+  margin-left: 20rpx;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+  box-sizing: border-box;
+}
+
+.radio-on {
+  border-color: #0A84FF;
+  background: #0A84FF;
+  border-width: 14rpx;
+}
+
+/* ── 底部导航 ── */
+.footer {
+  display: flex;
+  gap: 20rpx;
+  padding: 20rpx 32rpx calc(20rpx + env(safe-area-inset-bottom));
+  background: rgba(26, 26, 28, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1rpx solid rgba(255, 255, 255, 0.05);
+}
+
+.btn-nav {
+  flex: 1;
+  text-align: center;
+  font-size: 30rpx;
+  font-weight: 600;
+  border-radius: 52rpx;
+  padding: 24rpx 0;
+  letter-spacing: 0.01em;
+}
+
+.btn-prev {
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+}
+
+.btn-disabled {
+  opacity: 0.35;
+}
+
+.btn-next {
+  background: #0A84FF;
+  color: #FFFFFF;
+}
+
+.btn-next:active {
+  opacity: 0.75;
+}

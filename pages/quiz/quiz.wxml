@@ -1,0 +1,46 @@
+<!-- pages/quiz/quiz.wxml -->
+<view class="page">
+
+  <!-- 顶部进度 -->
+  <view class="header">
+    <view class="progress-track">
+      <view class="progress-fill" style="width: {{progress}}%"></view>
+    </view>
+    <view class="progress-info">
+      <text class="q-no">Q{{current.id}}</text>
+      <text class="q-count">第 {{currentIndex + 1}} / {{total}} 题</text>
+    </view>
+  </view>
+
+  <!-- 题干 -->
+  <scroll-view scroll-y class="body" enhanced show-scrollbar="{{false}}">
+    <view class="question-text">{{current.text}}</view>
+
+    <!-- 选项 -->
+    <view class="options">
+      <view
+        wx:for="{{current.options}}"
+        wx:key="text"
+        class="option {{selectedIndex === index ? 'option-selected' : ''}}"
+        bindtap="onSelect"
+        data-index="{{index}}"
+      >
+        <text class="option-letter">{{letterList[index]}}</text>
+        <view class="option-text">{{item.text}}</view>
+        <view class="option-radio {{selectedIndex === index ? 'radio-on' : ''}}"></view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 底部导航 -->
+  <view class="footer">
+    <view
+      class="btn-nav btn-prev {{currentIndex === 0 ? 'btn-disabled' : ''}}"
+      bindtap="onPrev"
+    >上一题</view>
+    <view class="btn-nav btn-next" bindtap="onNext">
+      {{currentIndex === total - 1 ? '查看结果' : '下一题'}}
+    </view>
+  </view>
+
+</view>
