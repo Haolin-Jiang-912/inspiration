@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>社会认知测评 · Social Cognition</title>
-<meta name="description" content="35道题，测出你的社会认知画像，并匹配一位历史人物与一首属于你的歌。">
+<title>社会情境判断与选择倾向量表</title>
+<meta name="description" content="35道题，测出你的社会情境判断与选择倾向画像，并匹配一位历史人物与一首属于你的歌。">
 <style>
   :root {
     --bg: #0A0A0C;
@@ -35,11 +35,13 @@
     background: var(--card); border-radius: 28px; padding: 40px 28px 32px;
     text-align: center; margin-top: 8vh;
   }
-  .hero h1 { font-size: 34px; font-weight: 700; letter-spacing: .02em; }
-  .hero .sub { color: var(--text-dim); font-size: 15px; margin-top: 10px; }
+  .hero h1 { font-size: 26px; font-weight: 700; letter-spacing: .04em; line-height: 1.5; }
+  .hero .sub { color: var(--text-dim); font-size: 15px; margin-top: 12px; }
+  .hero .sub a { color: var(--text-dim); text-decoration: none; letter-spacing: .03em; transition: color .2s; }
+  .hero .sub a:hover { color: var(--blue); }
   .hero .quote {
-    margin: 28px auto 0; font-size: 17px; line-height: 1.8; color: var(--text);
-    opacity: .92; font-weight: 300;
+    margin: 34px auto 0; font-size: 17px; line-height: 2.1; color: var(--text);
+    opacity: .92; font-weight: 300; letter-spacing: .05em; padding: 0 24px;
   }
   .hero .quote strong { font-weight: 600; }
   .dim-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 26px; }
@@ -187,9 +189,9 @@
 <!-- ============ 首页 ============ -->
 <div class="screen active" id="scr-home">
   <div class="hero">
-    <h1>社会认知测评</h1>
-    <div class="sub">Designed by Haolin Harry Jiang</div>
-    <div class="quote">「 <strong>你的语言，<br>就是你世界的边界。</strong> 」</div>
+    <h1>社会情境判断与选择倾向量表</h1>
+    <div class="sub"><a href="https://github.com/Haolin-Jiang-912" target="_blank" rel="noopener">@Haolin-Jiang-912</a></div>
+    <div class="quote">「 你的语言，<br>就是你世界的边界。 」</div>
     <div class="dim-chips" id="home-chips"></div>
     <div class="meta-row">
       <div class="meta-chip"><span class="num">35</span>道情境题</div>
@@ -258,7 +260,7 @@
   <div class="modal-box">
     <img id="share-img" alt="分享卡片">
     <div class="modal-btns">
-      <a class="btn-primary" id="share-dl" download="社会认知测评.png">保存图片</a>
+      <a class="btn-primary" id="share-dl" download="社会情境判断与选择倾向量表.png">保存图片</a>
       <button class="btn-ghost" onclick="closeShare()">关闭</button>
     </div>
   </div>
